@@ -2,13 +2,49 @@
   <v-col>
     <v-row>
       <v-layout class="layout">
-        <v-app-bar v-if="isMobile">
-          <template v-slot:prepend>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-          </template>
+        <div v-if="isMobile">
+          <v-app-bar>
+            <template v-slot:prepend>
+              <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            </template>
+            <template v-slot:append>
+              <v-btn icon="mdi-instagram"></v-btn>
 
-          <v-app-bar-title class="pl-5">FabRehab</v-app-bar-title>
-        </v-app-bar>
+              <v-btn icon="mdi-facebook"></v-btn>
+
+              <v-btn icon="mdi-whatsapp"></v-btn>
+            </template>
+            <v-app-bar-title class="pl-5">FabRehab</v-app-bar-title>
+          </v-app-bar>
+          <v-card>
+            <v-layout>
+              <v-navigation-drawer
+                image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+                permanent
+                theme="dark"
+              >
+                <v-list nav>
+                  <v-list-item
+                    prepend-icon="mdi-email"
+                    title="Inbox"
+                    value="inbox"
+                  ></v-list-item>
+                  <v-list-item
+                    prepend-icon="mdi-account-supervisor-circle"
+                    title="Supervisors"
+                    value="supervisors"
+                  ></v-list-item>
+                  <v-list-item
+                    prepend-icon="mdi-clock-start"
+                    title="Clock-in"
+                    value="clockin"
+                  ></v-list-item>
+                </v-list>
+              </v-navigation-drawer>
+              <v-main style="height: 250px"></v-main>
+            </v-layout>
+          </v-card>
+        </div>
 
         <div v-else>
           <div class="container">
