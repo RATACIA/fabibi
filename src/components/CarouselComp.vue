@@ -1,10 +1,11 @@
 <template>
   <v-carousel
     cycle
-    class="mt-10"
+    class="ma-2"
     height="500"
     hide-delimiter-background
     show-arrows="hover"
+    width="100%"
   >
     <v-carousel-item v-for="(slide, i) in slides" :key="i">
       <v-sheet :color="colors[i]" height="100%">
