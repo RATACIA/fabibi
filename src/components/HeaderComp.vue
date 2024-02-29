@@ -16,41 +16,17 @@
             </template>
             <v-app-bar-title class="pl-5">FabRehab</v-app-bar-title>
           </v-app-bar>
-          <v-card>
-            <v-layout>
-              <v-navigation-drawer
-                image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-                permanent
-                theme="dark"
-              >
-                <v-list nav>
-                  <v-list-item
-                    prepend-icon="mdi-email"
-                    title="Inbox"
-                    value="inbox"
-                  ></v-list-item>
-                  <v-list-item
-                    prepend-icon="mdi-account-supervisor-circle"
-                    title="Supervisors"
-                    value="supervisors"
-                  ></v-list-item>
-                  <v-list-item
-                    prepend-icon="mdi-clock-start"
-                    title="Clock-in"
-                    value="clockin"
-                  ></v-list-item>
-                </v-list>
-              </v-navigation-drawer>
-              <v-main style="height: 250px"></v-main>
-            </v-layout>
-          </v-card>
         </div>
 
         <div v-else>
           <div class="container">
             <div class="child-avatar">
-              <v-avatar color="orange" class="ma-1">dada</v-avatar>
-              <v-avatar color="orange" class="ma-1">dada</v-avatar>
+              <v-avatar color="orange" class="ma-1"
+                ><v-icon>mdi-facebook</v-icon></v-avatar
+              >
+              <v-avatar color="orange" class="ma-1"
+                ><v-icon>mdi-instagram</v-icon></v-avatar
+              >
             </div>
             <div class="child-title">
               <h1>FabRehab</h1>
@@ -62,8 +38,9 @@
                 <RouterLink to="/blog">Blog</RouterLink>
               </nav>
             </div>
+            <v-spacer></v-spacer>
             <div class="child-button">
-              <v-chip color="orange" class="ma-1">Contact us</v-chip>
+              <v-btn color="orange-darken-1" class="ma-1">Contact us</v-btn>
             </div>
           </div>
           <v-divider class="mt-3"></v-divider>

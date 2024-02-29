@@ -1,8 +1,10 @@
 <template>
-  <HeaderComp />
-  <RouterView />
+  <div id="app">
+    <HeaderComp2 />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>
-import HeaderComp from "./components/HeaderComp.vue";
+import HeaderComp2 from "./components/HeaderComp2.vue";
 </script>
