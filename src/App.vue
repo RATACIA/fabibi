@@ -25,6 +25,7 @@
           @click="handleIconClick(index)"
           class="hidden-xs-and-down"
         ></v-icon>
+        <div class="mr-2"></div>
       </v-app-bar>
 
       <!-- Side Drawer (visible on small screens) -->
