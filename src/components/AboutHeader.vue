@@ -31,11 +31,11 @@
       ></v-img>
     </v-col>
   </v-row>
-  <v-divider class="my-5 ml-3"></v-divider>
+  <v-divider class="my-5 mx-9"></v-divider>
   <v-row class="mt-12">
     <v-col style="text-align: center" class="px-0">
-      <v-card variant="flat">
-        <v-card-title style="font-size: 45px">
+      <v-card variant="flat" class="my-3">
+        <v-card-title style="font-size: 45px" class="pb-8">
           Skills and Qualifications
         </v-card-title>
         <v-list>
