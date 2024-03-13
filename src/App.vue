@@ -8,13 +8,23 @@
         >
 
         <v-spacer></v-spacer>
-        <v-btn text>Home</v-btn>
-        <v-btn text>Services</v-btn>
-        <v-btn text>Contact</v-btn>
+        <v-btn text @click="$router.push('/')" class="px-2">Home</v-btn>
+        <v-btn text @click="$router.push('/about')" class="px-2"
+          >Services</v-btn
+        >
+        <v-btn text @click="$router.push('/contact-us')" class="px-2"
+          >Contact</v-btn
+        >
 
-        <v-spacer class="hidden-md-and-down"></v-spacer>
-        <v-icon class="ma-1 hidden-sm-and-down">mdi-instagram</v-icon>
-        <v-icon class="ma-1">mdi-facebook</v-icon>
+        <v-spacer class="hidden-xs-and-down"></v-spacer>
+        <v-icon
+          v-for="(icon, index) in icons"
+          :key="index"
+          :icon="icon"
+          variant="text"
+          @click="handleIconClick(index)"
+          class="hidden-xs-and-down"
+        ></v-icon>
       </v-app-bar>
 
       <!-- Side Drawer (visible on small screens) -->
@@ -58,11 +68,11 @@
       </v-navigation-drawer>
 
       <!-- Main Content -->
-      <v-main class="ma-2">
+      <v-main class="mx-1">
         <!-- Your page content goes here -->
         <!-- <v-container style="margin: auto; padding-left: 1px"> -->
         <v-row no-gutters>
-          <v-col class="mr-3">
+          <v-col>
             <router-view></router-view>
           </v-col>
         </v-row>
@@ -82,4 +92,23 @@ const drawer = ref(false);
 const toggleDrawer = () => {
   drawer.value = !drawer.value;
 };
+const icons = ref(["mdi-instagram", "mdi-facebook"]);
+
+const links = ref([
+  "https://www.instagram.com/fabrehab_/",
+  "https://www.facebook.com/profile.php?id=100090998603012&locale=en_GB",
+]);
+
+const handleIconClick = (index) => {
+  const clickedLink = links.value[index];
+  window.open(clickedLink, "_blank");
+};
 </script>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+</style>

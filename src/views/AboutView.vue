@@ -1,14 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-  </div>
+  <AboutHeader />
+  <FooterComp />
 </template>
 
 <script setup>
-import HeaderComp from "@/components/HeaderComp.vue";
+import AboutHeader from "@/components/AboutHeader.vue";
+import FooterComp from "@/components/FooterComp.vue";
 </script>
 
 <style scoped></style>
