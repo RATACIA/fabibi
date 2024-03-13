@@ -65,8 +65,13 @@
 
     <v-card-actions>
       <v-spacer></v-spacer>
-
-      <v-btn color="success">
+      <div
+        class="g-recaptcha"
+        :data-sitekey="recaptchaSiteKey"
+        :data-callback="onRecaptchaSuccess"
+      ></div>
+      <input name="recaptcha_response" :value="recaptchaResponse" />
+      <v-btn color="success" @click="sendEmail">
         Send message
 
         <v-icon icon="mdi-chevron-right" end></v-icon>
@@ -78,6 +83,14 @@
     No worries, please leave your name, number and best time to call back below
     and we will reach out to you.
   </p>
+  <v-snackbar v-model="snackbar" :timeout="timeout" :color="snackbarColor">
+    {{ text }}
+    <template v-slot:actions>
+      <v-btn color="blue" variant="text" @click="snackbar = false">
+        Close
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 <script setup>
 import { ref } from "vue";
@@ -87,4 +100,58 @@ const lastName = ref(null);
 const email = ref(null);
 const terms = ref(false);
 const message = ref("");
+const snackbar = ref(false);
+const timeout = 2000;
+const snackbarColor = ref("green-accent-1");
+const text = ref("");
+const recaptchaResponse = ref(null);
+const recaptchaSiteKey = "6Lfo45cpAAAAAOgk_rk-l7QGd84DvtXh_vBY_0Sc";
+
+const handleRecaptcha = (response) => {
+  recaptchaResponse.value = response;
+};
+const onRecaptchaSuccess = () => {
+  // Logic to execute when reCAPTCHA is successfully verified
+  // You can submit the form here or perform any other action
+  document.getElementById("contact-form").submit();
+};
+
+const sendEmail = async () => {
+  try {
+    const URL = "https://roffon.ro/api_seb/contact_form.php";
+
+    const data = {
+      first_name: firstName.value,
+      last_name: lastName.value,
+      email: email.value,
+      message: message.value,
+      recaptcha_response: recaptchaResponse.value,
+    };
+
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+
+      if (responseData.message === "Email sent successfully") {
+        firstName.value = null;
+        lastName.value = null;
+        email.value = null;
+        terms.value = false;
+        message.value = "";
+        console.log("Email sent successfully!");
+      }
+    } else {
+      console.error("Request failed with status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
 </script>

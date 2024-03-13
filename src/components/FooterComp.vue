@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-right: 2px">
     <v-footer class="bg-grey-lighten-1 text-center d-flex flex-column">
       <v-row class="d-flex" cols="12">
         <v-col sm="12" xs="12" md="4" lg="4">
