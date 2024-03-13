@@ -1,13 +1,9 @@
 <template>
-  <div class="container">
-    <div class="about">
-      <h1>This is a contact page</h1>
-    </div>
-  </div>
+  <ContactForm />
 </template>
 
 <script setup>
-import HeaderComp from "@/components/HeaderComp.vue";
+import ContactForm from "@/components/ContactForm.vue";
 </script>
 
 <style scoped></style>
