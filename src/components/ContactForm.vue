@@ -23,33 +23,42 @@
       >
     </v-col>
   </v-row>
-  <v-card class="mx-auto mt-3 bg-grey-darken-1" title="Contact Form">
+  <v-card class="mx-auto mt-3 bg-grey-lighten-1" title="Contact Form">
     <v-container>
       <v-text-field
         v-model="firstName"
         color="primary"
-        label="First name"
-        variant="underlined"
+        label="First name*"
+        variant="outlined"
       ></v-text-field>
 
       <v-text-field
         v-model="lastName"
         color="primary"
-        label="Last name"
-        variant="underlined"
+        label="Last name*"
+        variant="outlined"
       ></v-text-field>
 
       <v-text-field
         v-model="email"
         color="primary"
-        label="Email"
-        variant="underlined"
+        label="Email*"
+        variant="outlined"
+      ></v-text-field>
+      <v-text-field
+        v-model="phoneNumber"
+        color="primary"
+        label="Phone Number"
+        variant="outlined"
+        hint="optional"
+        persistent-hint
       ></v-text-field>
 
       <v-textarea
+        class="mt-4"
         v-model="message"
         color="primary"
-        label="Message"
+        label="Message (required)"
         :rules="messageRules"
         placeholder="Enter your message"
         variant="outlined"
@@ -58,65 +67,21 @@
 
     <v-divider></v-divider>
 
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn color="success" @click="sendEmail">
+    <v-card-actions class="d-flex justify-center">
+      <v-btn @click="handleClick">
         Send message
 
         <v-icon icon="mdi-chevron-right" end></v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
-  <h1>Do you prefer a callback?</h1>
-  <p>
-    No worries, please leave your name, number and best time to call back below
-    and we will reach out to you.
-  </p>
-  <v-card class="mx-auto mt-3 bg-grey-darken-1" title="Callback Form">
-    <v-container>
-      <v-text-field
-        v-model="firstName"
-        color="primary"
-        label="First name"
-        variant="underlined"
-      ></v-text-field>
 
-      <v-text-field
-        v-model="lastName"
-        color="primary"
-        label="Last name"
-        variant="underlined"
-      ></v-text-field>
-
-      <v-text-field
-        v-model="phoneNumber"
-        color="primary"
-        label="phone number"
-        variant="underlined"
-      ></v-text-field>
-
-      <v-select
-        label="Select"
-        :items="['1', '2', '3', '4', '5', '6']"
-      ></v-select>
-    </v-container>
-
-    <v-divider></v-divider>
-
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn color="success" @click="sendEmail">
-        Request Callback
-        <v-icon icon="mdi-chevron-right" end></v-icon>
-      </v-btn>
-    </v-card-actions>
-  </v-card>
   <v-snackbar v-model="snackbar" :timeout="timeout" :color="snackbarColor">
     <div v-if="text === 'Email sent successfully'">
       {{ text }}
     </div>
     <div v-else>
-      <div v-for="(error, index) in text" :key="index">
+      <div v-for="(error, index) in text" :key="index" class="d-flex">
         {{ error }}
       </div>
     </div>
@@ -129,7 +94,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-
+import { useRouter } from "vue-router";
 const firstName = ref(null);
 const lastName = ref(null);
 const email = ref(null);
@@ -141,7 +106,6 @@ const snackbarColor = ref("green-accent-1");
 const text = ref("");
 const recaptchaResponse = ref(null);
 const recaptchaSiteKey = "6LfcxJcpAAAAAAZLG429BrdEXMe0MyDBjMfhi6Wt";
-const hours = ref(1, 3, 5);
 const phoneNumber = ref(null);
 
 const messageRules = ref([
@@ -152,7 +116,7 @@ const messageRules = ref([
   },
 ]);
 
-const sendEmail = async () => {
+const sendEmail = async (router) => {
   const token = await loadRecaptcha();
   console.log("Token:", token);
   try {
@@ -185,17 +149,11 @@ const sendEmail = async () => {
         snackbar.value = true;
         snackbarColor.value = "green";
         text.value = responseData.message;
-
+        router.push("/form-submitted-success");
         console.log("Email sent successfully!");
       } else if (responseData.status === -1) {
         snackbar.value = true;
         snackbarColor.value = "red";
-
-        console.log(
-          Object.entries(responseData).filter(([key, value]) => {
-            return key !== "message" || key !== "status";
-          })
-        );
         text.value = Object.entries(responseData)
           .filter(([key, value]) => {
             if (key === "message") return false;
@@ -214,7 +172,11 @@ const sendEmail = async () => {
   }
 };
 
-let recaptchaInstance = null;
+const router = useRouter();
+
+const handleClick = () => {
+  sendEmail(router);
+};
 
 const loadRecaptcha = () => {
   return new Promise((resolve, reject) => {

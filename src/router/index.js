@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import ServicesView from "../views/ServicesView.vue";
 import ContactView from "../views/ContactView.vue";
 import BlogView from "../views/BlogView.vue";
+import ThankYouComp from "@/components/ThankYouComp.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +25,11 @@ const router = createRouter({
       path: "/services",
       name: "services",
       component: ServicesView,
+    },
+    {
+      path: "/form-submitted-success",
+      name: "form-submitted-success",
+      component: ThankYouComp,
     },
     {
       path: "/contact-us",
