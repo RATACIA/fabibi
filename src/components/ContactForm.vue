@@ -112,8 +112,13 @@
     </v-card-actions>
   </v-card>
   <v-snackbar v-model="snackbar" :timeout="timeout" :color="snackbarColor">
-    <div v-for="(error, index) in text" :key="index">
-      {{ error }}
+    <div v-if="text === 'Email sent successfully'">
+      {{ text }}
+    </div>
+    <div v-else>
+      <div v-for="(error, index) in text" :key="index">
+        {{ error }}
+      </div>
     </div>
     <template v-slot:actions>
       <v-btn color="white" variant="text" @click="snackbar = false">
@@ -179,7 +184,8 @@ const sendEmail = async () => {
         message.value = "";
         snackbar.value = true;
         snackbarColor.value = "green";
-        text.value = Object.values(responseData).join("-");
+        text.value = responseData.message;
+
         console.log("Email sent successfully!");
       } else if (responseData.status === -1) {
         snackbar.value = true;
