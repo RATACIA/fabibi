@@ -80,16 +80,21 @@
     <div v-if="text === 'Email sent successfully'">
       {{ text }}
     </div>
-    <div v-else>
+    <div v-else class="error-container">
       <div v-for="(error, index) in text" :key="index" class="d-flex">
         {{ error }}
       </div>
+      <div class="d-flex flex-column">
+        <v-btn
+          class="mt-2"
+          color="white"
+          variant="text"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </div>
     </div>
-    <template v-slot:actions>
-      <v-btn color="white" variant="text" @click="snackbar = false">
-        Close
-      </v-btn>
-    </template>
   </v-snackbar>
 </template>
 <script setup>
@@ -126,6 +131,7 @@ const sendEmail = async (router) => {
       first_name: firstName.value,
       last_name: lastName.value,
       email: email.value,
+      phone_number: phoneNumber.value,
       message: message.value,
       recaptcha_response: recaptchaResponse.value,
     };
@@ -141,19 +147,19 @@ const sendEmail = async (router) => {
     if (response.ok) {
       const responseData = await response.json();
       if (responseData.message === "Email sent successfully") {
-        firstName.value = null;
-        lastName.value = null;
-        email.value = null;
-        terms.value = false;
-        message.value = "";
-        snackbar.value = true;
-        snackbarColor.value = "green";
-        text.value = responseData.message;
+        // firstName.value = null;
+        // lastName.value = null;
+        // email.value = null;
+        // terms.value = false;
+        // message.value = "";
+        // snackbar.value = true;
+        // snackbarColor.value = "green";
+        // text.value = responseData.message;
         router.push("/form-submitted-success");
         console.log("Email sent successfully!");
       } else if (responseData.status === -1) {
         snackbar.value = true;
-        snackbarColor.value = "red";
+        snackbarColor.value = "red-darken-1";
         text.value = Object.entries(responseData)
           .filter(([key, value]) => {
             if (key === "message") return false;
@@ -237,3 +243,15 @@ onMounted(() => {
 //   document.getElementById("contact-form").submit();
 // };
 </script>
+<style scoped>
+.d-flex.flex-column {
+  flex-direction: column;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>
