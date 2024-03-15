@@ -112,4 +112,8 @@ const handleIconClick = (index) => {
   padding: 0;
   box-sizing: border-box;
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
 </style>
