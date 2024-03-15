@@ -1,7 +1,8 @@
 <template>
-  <h1 class="ma-6">
+  <h1 class="mt-6 ml-6">
     Contact us <v-icon size="x-large" icon="mdi-account"></v-icon>
   </h1>
+
   <v-row>
     <v-col cols="12">
       <v-row class="ma-3">
