@@ -9,25 +9,28 @@
               >(All services are home based)</v-card-title
             >
           </v-card-title>
-
-          <v-card
-            class="d-flex align-center"
-            v-for="(service, index) in services"
-            :key="index"
-          >
-            <v-card-title @click="toggleCard(index)">
-              {{ service }}
-              <v-icon
-                :icon="
-                  expanded === index ? 'mdi-chevron-up' : 'mdi-chevron-down'
-                "
-              ></v-icon>
-            </v-card-title>
-            <v-expand-transition>
-              <v-card-text v-show="expanded === index">{{
-                serviceText[index]
-              }}</v-card-text>
-            </v-expand-transition>
+        </v-card>
+        <v-card
+          v-for="(service, index) in services"
+          :key="index"
+          class="service-card"
+          width="100%"
+          variant="flat"
+        >
+          <v-card @click="toggleCard(index)" variant="flat">
+            <div class="service-content">
+              <v-card-title class="service-title">{{ service }}</v-card-title>
+              <div class="icon-column">
+                <v-icon
+                  :icon="
+                    expanded === index ? 'mdi-chevron-up' : 'mdi-chevron-down'
+                  "
+                ></v-icon>
+              </div>
+            </div>
+            <v-card-text v-show="expanded === index">{{
+              serviceText[index]
+            }}</v-card-text>
           </v-card>
         </v-card>
       </v-col>
@@ -46,7 +49,7 @@ const services = ref([
 ]);
 
 const serviceText = ref([
-  "These can consist of Deep Tissue, Sports Massage or Relaxing massage. 45 minutes",
+  `These can consist of Deep Tissue, Sports Massage or Relaxing massage. 45 minutes`,
   "If you have pains, discomfort or an injury, we can assess and rehabilitate these! 45 minutes",
   "Cupping therapy is a traditional alternative therapy that involves placing specially designed cups on the skin to create a vacuum, which suctions the skin and underlying tissues. This suction creates a negative pressure that is believed to stimulate blood flow, loosen fascial adhesions, and promote healing. The cups are typically made of glass, silicone, or plastic and can be either stationary or moved along the skin. Cupping therapy is often used to relieve muscle tension, promote relaxation, and address a variety of conditions such as pain, inflammation, and stress. 30 minutes",
   "Reflexology is a complementary therapy that involves applying pressure to specific points on the feet, hands, or ears to promote relaxation, reduce stress, and support overall well-being. These points are believed to correspond to specific organs, glands, or body systems, and applying pressure to them is thought to stimulate natural healing responses in the body. Reflexology is often used for relaxation, stress relief, and to address a variety of conditions such as pain, tension, and digestive issues.45 minutes",
@@ -58,3 +61,30 @@ const toggleCard = (index) => {
   expanded.value = expanded.value === index ? null : index;
 };
 </script>
+<style>
+.v-card {
+  width: 100%;
+}
+
+.service-card {
+  position: relative;
+}
+
+.service-content {
+  display: flex;
+  align-items: center;
+}
+
+.service-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon-column {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+</style>
