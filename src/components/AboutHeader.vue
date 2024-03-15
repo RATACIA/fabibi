@@ -1,7 +1,5 @@
 <template>
   <div>
-    <div style="min-height: 50px"></div>
-
     <v-row
       class="d-flex flex-column-reverse flex-md-row"
       align="center"
