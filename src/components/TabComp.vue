@@ -40,13 +40,11 @@ const text = ref([
 const time = ref(["45 minutes", "45 minutes", "30 minutes", "30 minutes"]);
 
 const getText = (item) => {
-  // Find the index of the selected item and return the corresponding text
   const index = items.value.indexOf(item);
   return index !== -1 ? text.value[index] : "";
 };
 
 const getTime = (item) => {
-  // Find the index of the selected item and return the corresponding text
   const index = items.value.indexOf(item);
   return index !== -1 ? time.value[index] : "";
 };
