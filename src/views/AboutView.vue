@@ -1,7 +1,7 @@
 <template>
   <AboutHeader />
-  <FooterComp />
   <google-review />
+  <FooterComp />
 </template>
 
 <script setup>

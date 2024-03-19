@@ -6,14 +6,14 @@
       style="width: 100%"
     >
       <v-row class="d-flex" cols="12">
-        <v-col sm="12" xs="12" md="4" lg="4">
+        <v-col sm="4" xs="12" md="4" lg="4">
           <h4>Hours</h4>
           <span
             >Home Service<br />
             Mon - Sun: 11am - 7pm
           </span>
         </v-col>
-        <v-col sm="12" xs="12" md="4" lg="4">
+        <v-col sm="4" xs="12" md="4" lg="4">
           <h4>Contact</h4>
           <span
             >Phone: <br />+34747434979
@@ -22,7 +22,7 @@
             Email:<br /><a href="mailto:example@email.com">example@gmail.com</a>
           </span>
         </v-col>
-        <v-col sm="12" xs="12" md="4" lg="4">
+        <v-col sm="4" xs="12" md="4" lg="4">
           <h4>More Info</h4>
           <router-link to="/health-and-safety">Health and Safety</router-link>
         </v-col>

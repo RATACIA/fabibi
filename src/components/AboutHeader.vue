@@ -5,8 +5,9 @@
       align="center"
       justify="center"
     >
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="align-self-center">
         <v-img
+          class="mt-3 mx-2"
           aspect-ratio="1/1"
           cover
           src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
@@ -14,7 +15,7 @@
       </v-col>
 
       <v-col cols="12" md="6">
-        <v-card variant="flat" class="px-3 py-5">
+        <v-card variant="flat" class="pr-2 my-3">
           <v-card-title class="text-center pb-4 pt-3" style="font-size: 30px">
             About
           </v-card-title>
@@ -40,7 +41,7 @@
     <v-row>
       <v-col>
         <v-card variant="flat" class="my-3">
-          <v-card-title class="pb-8" style="font-size: 30px">
+          <v-card-title class="pb-8 text-center" style="font-size: 30px">
             Skills and Qualifications
           </v-card-title>
           <v-list class="text-center">
