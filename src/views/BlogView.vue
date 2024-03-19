@@ -44,14 +44,14 @@
       </div>
     </div>
   </div>
-  <iframe
-    src="https://widgets.sociablekit.com/instagram-feed/iframe/25381924"
-    frameborder="0"
-    width="100%"
-    height="100%"
-  ></iframe>
+  <GoogleReview />
+  <footer-comp />
 </template>
 
+<script setup>
+import GoogleReview from "@/components/GoogleReview.vue";
+import FooterComp from "@/components/FooterComp.vue";
+</script>
 <style>
 /* Custom styles for embedded Facebook posts */
 .container {
