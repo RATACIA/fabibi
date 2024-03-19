@@ -4,6 +4,7 @@ import ServicesView from "../views/ServicesView.vue";
 import ContactView from "../views/ContactView.vue";
 import BlogView from "../views/BlogView.vue";
 import ThankYouComp from "@/components/ThankYouComp.vue";
+import GoogleReview from "@/components/GoogleReview.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: "/blog",
       name: "blog",
       component: BlogView,
+    },
+    {
+      path: "/reviews",
+      name: "reviews",
+      component: GoogleReview,
     },
   ],
 });

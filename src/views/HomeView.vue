@@ -14,6 +14,7 @@
     <div style="margin-right: 8px">
       <CarouselComp />
     </div>
+    <google-review />
     <FooterComp style="margin-left: 8px" />
   </v-container>
 </template>
@@ -22,6 +23,7 @@
 import CarouselComp from "@/components/CarouselComp.vue";
 import FooterComp from "@/components/FooterComp.vue";
 import TabComp from "@/components/TabComp.vue";
+import GoogleReview from "@/components/GoogleReview.vue";
 </script>
 
 <style scoped></style>

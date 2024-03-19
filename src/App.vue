@@ -7,7 +7,10 @@
           >FabRehab</v-toolbar-title
         >
 
-        <v-spacer></v-spacer>
+        <v-spacer
+          style="margin-right: -190px"
+          class="hidden-sm-and-down pl-5"
+        ></v-spacer>
         <v-btn text @click="$router.push('/')" class="px-2">Home</v-btn>
         <v-btn text @click="$router.push('/about')" class="px-2"
           >Services</v-btn
