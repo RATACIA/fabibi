@@ -121,7 +121,7 @@ onMounted(() => {
         src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
       >
       </v-img>
-      <h2 class="ma-2">Reviews</h2>
+      <h2 class="ma-3">Reviews</h2>
     </div>
     <v-carousel height="auto" show-arrows="hover" hide-delimiters class="px-3">
       <v-carousel-item v-for="review in reviews" :key="review.id" class="ma-3">

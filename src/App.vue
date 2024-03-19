@@ -7,19 +7,17 @@
           >FabRehab</v-toolbar-title
         >
 
-        <v-spacer
-          style="margin-right: -190px"
-          class="hidden-sm-and-down pl-5"
-        ></v-spacer>
-        <v-btn text @click="$router.push('/')" class="px-2">Home</v-btn>
-        <v-btn text @click="$router.push('/about')" class="px-2"
-          >Services</v-btn
-        >
-        <v-btn text @click="$router.push('/contact-us')" class="px-2"
-          >Contact</v-btn
-        >
+        <v-spacer class="hidden-sm-and-down"></v-spacer>
+
+        <!-- Centered buttons -->
+        <div class="d-flex flex-start flex-grow-1">
+          <v-btn text @click="$router.push('/')">Home</v-btn>
+          <v-btn text @click="$router.push('/about')">Services</v-btn>
+          <v-btn text @click="$router.push('/contact-us')">Contact</v-btn>
+        </div>
 
         <v-spacer class="hidden-xs-and-down"></v-spacer>
+
         <v-icon
           v-for="(icon, index) in icons"
           :key="index"
