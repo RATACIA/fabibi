@@ -31,6 +31,10 @@ const router = createRouter({
       path: "/form-submitted-success",
       name: "form-submitted-success",
       component: ThankYouComp,
+      props: (route) => ({
+        firstName: route.query.firstName,
+        lastName: route.query.lastName,
+      }),
     },
     {
       path: "/contact-us",

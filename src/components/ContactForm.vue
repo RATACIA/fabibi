@@ -164,7 +164,13 @@ const sendEmail = async (router) => {
         // snackbar.value = true;
         // snackbarColor.value = "green";
         // text.value = responseData.message;
-        router.push("/form-submitted-success");
+        router.push({
+          path: "/form-submitted-success",
+          query: {
+            firstName: firstName.value,
+            lastName: lastName.value,
+          },
+        });
         console.log("Email sent successfully!");
       } else if (responseData.status === -1) {
         snackbar.value = true;

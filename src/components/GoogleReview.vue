@@ -112,26 +112,61 @@ onMounted(() => {
   </div>
 </template> -->
 <template>
+  <v-divider></v-divider>
+
+  <div style="height: 10vh"></div>
   <div v-if="reviews.length">
-    <div class="d-flex ma-4 justify-center">
-      <v-img
-        max-width="60"
-        aspect-ratio="1/1"
-        cover
-        src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
-      >
-      </v-img>
-      <h2 class="ma-3">Reviews</h2>
+    <div class="container-fluid d-flex justify-center pa-3">
+      <div class="row">
+        <div class="col text-center px-3">
+          <v-card variant="flat" class="pr-2 ma-3">
+            <v-card-title style="font-size: 1.5em"
+              >What Our Clients Say</v-card-title
+            >
+            <div class="text-center">
+              <p style="line-height: 1.8; color: #757575">
+                We pride ourselves on providing an exceptional service to our
+                clients, but you don’t just have to take our word for it.
+                <br />Read what our clients have to say about working with us.
+              </p>
+            </div>
+          </v-card>
+        </div>
+        <div class="col text-center px-3">
+          <v-card variant="flat" class="pr-2 ma-3 d-flex justify-center">
+            <v-img
+              max-width="60"
+              aspect-ratio="1/1"
+              cover
+              src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
+            ></v-img>
+            <p style="font-size: 18px" class="pa-3 align-self-center">
+              Reviews
+            </p>
+          </v-card>
+        </div>
+      </div>
     </div>
-    <v-carousel height="auto" show-arrows="hover" hide-delimiters class="px-3">
+    <div style="height: 5vh"></div>
+    <v-divider class="my-2 mx-15"></v-divider>
+    <v-carousel
+      height="auto"
+      show-arrows="hover"
+      hide-delimiters
+      class="px-3"
+      cycle
+    >
       <v-carousel-item v-for="review in reviews" :key="review.id" class="ma-3">
         <div>
-          <div class="d-flex align-items-start px-10">
-            <v-avatar size="64">
-              <v-img :src="review.profile_photo_url"></v-img>
-            </v-avatar>
-            <p class="ml-3 align-self-center">{{ review.author_name }}</p>
+          <div class="d-flex flex-column align-items-start px-10">
             <v-spacer></v-spacer>
+            <div class="d-flex text-center align-self-center pb-3">
+              <v-avatar size="64">
+                <v-img :src="review.profile_photo_url"></v-img>
+              </v-avatar>
+              <p class="ml-3 align-self-center">{{ review.author_name }}</p>
+            </div>
+
             <div class="d-flex flex-column text-center align-self-center">
               <v-rating
                 size="small"
@@ -140,12 +175,14 @@ onMounted(() => {
                 color="orange-lighten-1"
                 density="compact"
               ></v-rating>
+
               <v-card-subtitle class="align-self-center px-1">
                 {{ review.relative_time_description }}
               </v-card-subtitle>
             </div>
+            <v-spacer></v-spacer>
           </div>
-          <v-divider class="my-2 mx-4"></v-divider>
+
           <v-card-text class="mx-13 font-weight-medium align-self-center">
             <p class="text-center">{{ review.text }}</p>
           </v-card-text>

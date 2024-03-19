@@ -1,5 +1,10 @@
 <template>
-  <v-card class="ml-0" style="margin-right: 4px" color="orange" variant="flat">
+  <v-card
+    class="ml-0 mb-6"
+    style="margin-right: 4px"
+    color="orange"
+    variant="flat"
+  >
     <v-card-title class="text-center">Fabrehab</v-card-title>
     <v-img
       class="mx-auto mb-4"
@@ -14,7 +19,7 @@
     <CarouselComp />
   </div>
   <google-review />
-  <FooterComp style="margin-left: 8px" />
+  <FooterComp />
 </template>
 
 <script setup>

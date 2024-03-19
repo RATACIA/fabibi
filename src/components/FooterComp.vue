@@ -1,46 +1,54 @@
 <template>
-  <div>
+  <div style="margin-right: -4px">
     <v-divider></v-divider>
-    <v-footer
-      class="bg-grey-lighten-5 text-center d-flex flex-column"
-      style="width: 100%"
-    >
-      <v-row class="d-flex" cols="12">
-        <v-col sm="4" xs="12" md="4" lg="4">
-          <h4>Hours</h4>
-          <span
-            >Home Service<br />
-            Mon - Sun: 11am - 7pm
-          </span>
-        </v-col>
-        <v-col sm="4" xs="12" md="4" lg="4">
-          <h4>Contact</h4>
-          <span
-            >Phone: <br />+34747434979
+    <v-footer class="bg-grey-darken-2 text-center">
+      <v-container>
+        <v-row>
+          <v-col cols="12" md="4">
+            <div class="py-4">
+              <p class="mb-2">Hours</p>
+              <p class="mb-0">Home Service</p>
+              <p class="mb-0">Mon - Sun: 11am - 7pm</p>
+            </div>
+          </v-col>
+          <v-col cols="12" md="4">
+            <div class="py-4">
+              <p class="mb-2">Contact</p>
+              <p class="mb-0">Phone: +34747434979</p>
+              <p class="mb-0">
+                Email: <a href="mailto:example@email.com">example@gmail.com</a>
+              </p>
+            </div>
+          </v-col>
+          <v-col cols="12" md="4">
+            <div class="py-4">
+              <p class="mb-2">More Info</p>
+              <router-link to="/health-and-safety" class="text-decoration-none"
+                >Health and Safety</router-link
+              >
+            </div>
+          </v-col>
+        </v-row>
 
-            <br />
-            Email:<br /><a href="mailto:example@email.com">example@gmail.com</a>
-          </span>
-        </v-col>
-        <v-col sm="4" xs="12" md="4" lg="4">
-          <h4>More Info</h4>
-          <router-link to="/health-and-safety">Health and Safety</router-link>
-        </v-col>
-      </v-row>
-      <div>
-        <v-btn
-          v-for="(icon, index) in icons"
-          :key="index"
-          :icon="icon"
-          class="ma-4"
-          variant="text"
-          @click="goToLink(index)"
-        ></v-btn>
-      </div>
+        <div class="my-6">
+          <v-btn
+            v-for="(icon, index) in icons"
+            :key="index"
+            :icon="icon"
+            class="mr-4 custom-btn"
+            variant="text"
+            @click="goToLink(index)"
+          ></v-btn>
+        </div>
 
-      <v-divider></v-divider>
+        <v-divider></v-divider>
 
-      <div>{{ new Date().getFullYear() }} — <strong>FabRehab</strong></div>
+        <div class="my-4">
+          <p class="mb-0">
+            {{ new Date().getFullYear() }}© — <span>FabRehab</span>
+          </p>
+        </div>
+      </v-container>
     </v-footer>
   </div>
 </template>
@@ -73,5 +81,19 @@ a {
 }
 .v-footer {
   margin-left: -4px;
+}
+
+a {
+  color: white;
+}
+a:hover {
+  cursor: pointer;
+  background-color: #82b1ff;
+  padding: 4px 4px;
+  border-radius: 15px;
+}
+
+.custom-btn:hover {
+  background-color: #82b1ff;
 }
 </style>

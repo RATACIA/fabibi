@@ -4,7 +4,7 @@
       cycle
       class="mx-0"
       height="500"
-      hide-delimiter-background
+      hide-delimiters
       show-arrows="hover"
       width="100%"
     >

@@ -1,7 +1,7 @@
 <template>
   <v-card color="basil" variant="flat">
     <v-card-title class="text-center justify-center py-6">
-      <h1 class="font-weight-bold text-h2 text-basil">SERVICES</h1>
+      <h2 class="font-weight-bold text-h3 text-basil">SERVICES</h2>
     </v-card-title>
 
     <v-tabs v-model="tab" bg-color="transparent" color="basil" grow>
