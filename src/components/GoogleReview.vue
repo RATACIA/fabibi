@@ -190,14 +190,28 @@ onMounted(() => {
       </v-carousel-item>
     </v-carousel>
   </div>
+  <div style="margin: 0 -5px">
+    <GoogleMap
+      :api-key="apiKey"
+      style="width: 100%; height: 500px"
+      :center="center"
+      :zoom="15"
+      class="pa-0"
+    >
+      <Marker :options="{ position: center }" />
+    </GoogleMap>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import { GoogleMap, Marker } from "vue3-google-map";
+
+const center = ref({});
 
 const reviews = ref([]);
 const apiKey = "AIzaSyAiCB4Xzny_ebB3dEjNMcefvlB9d3PdjTg";
-const placeId = "ChIJEVs8RlRGOo8RAx8C6f1jydI"; // This is the place ID of the location you want to fetch reviews for
+const placeId = "ChIJEVs8RlRGOo8RAx8C6f1jydI";
 
 const fetchGoogleReviews = async () => {
   fetch("https://www.roffon.ro/api_seb/reviews.php")
@@ -209,6 +223,7 @@ const fetchGoogleReviews = async () => {
     })
     .then((data) => {
       reviews.value = data.result.reviews;
+      center.value = data.result.geometry.location;
       console.log(data);
     })
     .catch((error) => {
@@ -222,3 +237,9 @@ const carouselItems = computed(() => {
 
 onMounted(fetchGoogleReviews);
 </script>
+
+<style>
+.mapdiv {
+  margin-right: -8px;
+}
+</style>
