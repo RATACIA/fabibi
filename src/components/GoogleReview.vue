@@ -114,7 +114,7 @@ onMounted(() => {
 <template>
   <v-divider></v-divider>
 
-  <div style="height: 10vh"></div>
+  <div style="height: 5vh"></div>
   <div v-if="reviews.length">
     <div class="container-fluid d-flex justify-center pa-3">
       <div class="row">
@@ -158,16 +158,15 @@ onMounted(() => {
     >
       <v-carousel-item v-for="review in reviews" :key="review.id" class="ma-3">
         <div>
-          <div class="d-flex flex-column align-items-start px-10">
-            <v-spacer></v-spacer>
-            <div class="d-flex text-center align-self-center pb-3">
+          <div class="d-flex align-items-start px-10">
+            <div class="d-flex text-center align-self-center pb-3 pl-9">
               <v-avatar size="64">
                 <v-img :src="review.profile_photo_url"></v-img>
               </v-avatar>
               <p class="ml-3 align-self-center">{{ review.author_name }}</p>
             </div>
-
-            <div class="d-flex flex-column text-center align-self-center">
+            <v-spacer></v-spacer>
+            <div class="d-flex flex-column text-center align-self-center pr-9">
               <v-rating
                 size="small"
                 v-model="review.rating"
@@ -180,7 +179,6 @@ onMounted(() => {
                 {{ review.relative_time_description }}
               </v-card-subtitle>
             </div>
-            <v-spacer></v-spacer>
           </div>
 
           <v-card-text class="mx-13 font-weight-medium align-self-center">
@@ -190,24 +188,11 @@ onMounted(() => {
       </v-carousel-item>
     </v-carousel>
   </div>
-  <div style="margin: 0 -5px">
-    <GoogleMap
-      :api-key="apiKey"
-      style="width: 100%; height: 500px"
-      :center="center"
-      :zoom="15"
-      class="pa-0"
-    >
-      <Marker :options="{ position: center }" />
-    </GoogleMap>
-  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { GoogleMap, Marker } from "vue3-google-map";
-
-const center = ref({});
 
 const reviews = ref([]);
 const apiKey = "AIzaSyAiCB4Xzny_ebB3dEjNMcefvlB9d3PdjTg";
@@ -223,7 +208,6 @@ const fetchGoogleReviews = async () => {
     })
     .then((data) => {
       reviews.value = data.result.reviews;
-      center.value = data.result.geometry.location;
       console.log(data);
     })
     .catch((error) => {

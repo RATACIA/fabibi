@@ -29,6 +29,16 @@
             </div>
           </v-col>
         </v-row>
+        <div style="margin: 0 -32px">
+          <GoogleMap
+            :api-key="apiKey"
+            style="width: 100%; height: 500px"
+            :center="center"
+            :zoom="15"
+          >
+            <Marker :options="{ position: center }" />
+          </GoogleMap>
+        </div>
 
         <div class="my-6">
           <v-btn
@@ -54,7 +64,10 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { GoogleMap, Marker } from "vue3-google-map";
 
+const apiKey = "AIzaSyAiCB4Xzny_ebB3dEjNMcefvlB9d3PdjTg";
+const center = { lat: 36.4875494, lng: -4.955402299999999 };
 const icons = ref([
   "mdi-facebook",
   "mdi-instagram",

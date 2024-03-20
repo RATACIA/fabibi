@@ -14,7 +14,10 @@
           <v-btn class="hidden-sm-and-down" text @click="$router.push('/')"
             >Home</v-btn
           >
-          <v-btn class="hidden-sm-and-down" text @click="$router.push('/about')"
+          <v-btn
+            class="hidden-sm-and-down"
+            text
+            @click="$router.push('/services')"
             >Services</v-btn
           >
           <v-btn
