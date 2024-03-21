@@ -45,7 +45,7 @@
             v-for="(icon, index) in icons"
             :key="index"
             :icon="icon"
-            class="mr-4 custom-btn"
+            :class="'mr-4 custom-btn ' + getHoverColor(icon)"
             variant="text"
             @click="goToLink(index)"
           ></v-btn>
@@ -69,6 +69,7 @@ import { GoogleMap, Marker } from "vue3-google-map";
 const apiKey = "AIzaSyAiCB4Xzny_ebB3dEjNMcefvlB9d3PdjTg";
 const center = { lat: 36.4875494, lng: -4.955402299999999 };
 const icons = ref([
+  "mdi-map-marker",
   "mdi-facebook",
   "mdi-instagram",
   "mdi-linkedin",
@@ -76,11 +77,28 @@ const icons = ref([
 ]);
 
 const links = ref([
+  "https://www.google.com/maps/place/FabRehab+-+Mobile+Physiotherapist+Marbella/@36.4875537,-4.9579826,17z/data=!3m2!4b1!5s0xd7329c02b5004d3:0x25ad0f13907236ba!4m6!3m5!1s0x8f3a4654463c5b11:0xd2c963fde9021f03!8m2!3d36.4875494!4d-4.9554023!16s%2Fg%2F11kpl01w_d?entry=ttu",
   "https://www.facebook.com/profile.php?id=100090998603012&locale=en_GB",
   "https://www.instagram.com/fabrehab_/",
   "https://www.linkedin.com/in/fabio-mouawad-5b0269190/",
   "https://twitter.com/",
 ]);
+const getHoverColor = (icon) => {
+  switch (icon) {
+    case "mdi-map-marker":
+      return "hover-gradient-map-marker";
+    case "mdi-facebook":
+      return "hover-color-facebook";
+    case "mdi-instagram":
+      return "hover-color-instagram";
+    case "mdi-linkedin":
+      return "hover-color-linkedin";
+    case "mdi-twitter":
+      return "hover-color-twitter";
+    default:
+      return "hover-color-default";
+  }
+};
 
 const goToLink = (index) => {
   const clickedLink = links.value[index];
@@ -108,5 +126,41 @@ a:hover {
 
 .custom-btn:hover {
   background-color: #82b1ff;
+}
+
+.hover-color-facebook:hover {
+  background-color: #3b5998;
+}
+
+.hover-color-instagram:hover {
+  background-color: #c32aa3;
+}
+
+.hover-color-linkedin:hover {
+  background-color: #0077b5;
+}
+
+.hover-color-twitter:hover {
+  background-color: #1da1f2;
+}
+
+.hover-gradient-map-marker:hover {
+  /* background-image: linear-gradient(
+    90deg,
+    #4285f4 0%,
+    #db4437 25%,
+    #f4b400 50%,
+    #0f9d58 90%
+  ); */
+  background-image: linear-gradient(
+    30deg,
+    #4285f4 0%,
+    #4285f4 33%,
+
+    #f4b400 33%,
+    #f4b400 66%,
+    #0f9d58 66%,
+    #0f9d58 100%
+  );
 }
 </style>

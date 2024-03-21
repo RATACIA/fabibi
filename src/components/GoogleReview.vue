@@ -118,6 +118,16 @@ onMounted(() => {
   <div v-if="reviews.length">
     <div class="container-fluid d-flex justify-center pa-3">
       <div class="row">
+        <div class="text-center">
+          <v-rating
+            v-model="rating"
+            color="orange-lighten-1"
+            density="default"
+            class="ml-4"
+            readonly
+          ></v-rating>
+          <v-card-text class="ml-4">{{ totalRatings }} reviews</v-card-text>
+        </div>
         <div class="col text-center px-3">
           <v-card variant="flat" class="pr-2 ma-3">
             <v-card-title style="font-size: 1.5em"
@@ -173,6 +183,7 @@ onMounted(() => {
                 active-color="orange-lighten-1"
                 color="orange-lighten-1"
                 density="compact"
+                readonly
               ></v-rating>
 
               <v-card-subtitle class="align-self-center px-1">
@@ -195,7 +206,8 @@ import { ref, onMounted, computed } from "vue";
 import { GoogleMap, Marker } from "vue3-google-map";
 
 const reviews = ref([]);
-const apiKey = "AIzaSyAiCB4Xzny_ebB3dEjNMcefvlB9d3PdjTg";
+const rating = ref(null);
+const totalRatings = ref(null);
 const placeId = "ChIJEVs8RlRGOo8RAx8C6f1jydI";
 
 const fetchGoogleReviews = async () => {
@@ -208,6 +220,8 @@ const fetchGoogleReviews = async () => {
     })
     .then((data) => {
       reviews.value = data.result.reviews;
+      rating.value = data.result.rating;
+      totalRatings.value = data.result.user_ratings_total;
       console.log(data);
     })
     .catch((error) => {
