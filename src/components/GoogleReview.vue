@@ -222,6 +222,7 @@ const fetchGoogleReviews = async () => {
       reviews.value = data.result.reviews;
       rating.value = data.result.rating;
       totalRatings.value = data.result.user_ratings_total;
+      console.log("Image URLs:", reviews.value.map(review => review.profile_photo_url));
       console.log(data);
     })
     .catch((error) => {
