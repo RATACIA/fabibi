@@ -165,6 +165,7 @@ onMounted(() => {
       hide-delimiters
       class="px-3"
       cycle
+      interval="4000"
     >
       <v-carousel-item v-for="review in reviews" :key="review.id" class="ma-3">
         <div>
@@ -222,7 +223,10 @@ const fetchGoogleReviews = async () => {
       reviews.value = data.result.reviews;
       rating.value = data.result.rating;
       totalRatings.value = data.result.user_ratings_total;
-      console.log("Image URLs:", reviews.value.map(review => review.profile_photo_url));
+      console.log(
+        "Image URLs:",
+        reviews.value.map((review) => review.profile_photo_url)
+      );
       console.log(data);
     })
     .catch((error) => {
