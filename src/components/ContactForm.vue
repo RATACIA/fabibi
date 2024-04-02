@@ -15,24 +15,30 @@
             You can reach us by phone between 8am - 4pm (Mon - Fri). Our number
             is: +34747434979
           </p>
-          <v-card-title
+          <v-card-title class="py-3"
             ><v-icon icon="mdi-whatsapp" size="large"></v-icon>Whatsapp
           </v-card-title>
           <p class="pa-2">
-            Scan the QR code below or click the link below to send us a message on Whatsapp
+            Scan the QR code below or click the link below to send us a message
+            on Whatsapp
           </p>
-          <div class="d-flex ml-4" >
-           
-          <img src="../images/qrwapp.jpg" width="100" height="100">
-          <v-card-text class="d-flex align-center justify-center"> or click here</v-card-text>
-          <v-chip class="align-self-center" color="green-darken-3" @click="visitWhatsapp"> Contact us <v-icon>mdi-whatsapp</v-icon></v-chip>
-          <v-spacer></v-spacer>
-        </div>
-          
-         
+          <div class="d-flex ml-4">
+            <img src="../images/qrwapp.jpg" width="100" height="100" />
+            <v-card-text class="d-flex align-center justify-center">
+              or click here</v-card-text
+            >
+            <v-btn
+              variant="flat"
+              class="align-self-center wapp-btn"
+              @click="visitWhatsapp"
+            >
+              Contact us <v-icon>mdi-whatsapp</v-icon></v-btn
+            >
+            <v-spacer></v-spacer>
+          </div>
         </v-card>
       </v-row>
-      <v-row class="ma-3"
+      <v-row class="ma-3 pt-3 pb-3"
         ><v-card variant="flat">
           <v-card-title
             ><v-icon icon="mdi-email-outline" size="large"></v-icon>
@@ -138,9 +144,10 @@ const recaptchaSiteKey = "6LfcxJcpAAAAAAZLG429BrdEXMe0MyDBjMfhi6Wt";
 const phoneNumber = ref(null);
 
 const visitWhatsapp = () => {
-  const targetLink= 'https://api.whatsapp.com/message/DZHVGDJVM32QF1?autoload=1&app_absent=0'
-  window.open(targetLink, '_blank')
-}
+  const targetLink =
+    "https://api.whatsapp.com/message/DZHVGDJVM32QF1?autoload=1&app_absent=0";
+  window.open(targetLink, "_blank");
+};
 
 const messageRules = ref([
   (value) => {
@@ -291,5 +298,9 @@ onMounted(() => {
 }
 .custom-btn:hover {
   background-color: #82b1ff;
+}
+
+.wapp-btn {
+  background-color: #25d366;
 }
 </style>

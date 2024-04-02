@@ -3,14 +3,15 @@
     <v-app>
       <v-app-bar app>
         <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
-        <v-toolbar-title class="hidden-sm-and-down pl-3"
+
+        <v-toolbar-title class="pl-3" style="margin-right: -50px"
           >FabRehab</v-toolbar-title
         >
 
         <v-spacer class="hidden-sm-and-down"></v-spacer>
 
         <!-- Centered buttons -->
-        <div class="d-flex flex-start flex-grow-1">
+        <div class="d-flex flex-start flex-grow-1" style="margin-right: -50px">
           <v-btn class="hidden-sm-and-down" text @click="$router.push('/')"
             >Home</v-btn
           >
@@ -42,7 +43,13 @@
       </v-app-bar>
 
       <!-- Side Drawer (visible on small screens) -->
-      <v-navigation-drawer app v-model="drawer" class="mt-0" width="200">
+      <v-navigation-drawer
+        app
+        v-model="drawer"
+        class="mt-0"
+        width="200"
+        absolute
+      >
         <v-list>
           <v-list-item @click="$router.push('/')">
             <v-list-item-icon>

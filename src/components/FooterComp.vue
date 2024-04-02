@@ -133,7 +133,15 @@ a:hover {
 }
 
 .hover-color-instagram:hover {
-  background-color: #c32aa3;
+  /* background-color: #c32aa3; */
+  background-image: linear-gradient(
+    5deg,
+    #feda75 0%,
+    #fa7e1e 20%,
+    #d62976 40%,
+    #962fbf 60%,
+    #4f5bd5 95%
+  );
 }
 
 .hover-color-linkedin:hover {
@@ -152,15 +160,6 @@ a:hover {
     #f4b400 50%,
     #0f9d58 90%
   ); */
-  background-image: linear-gradient(
-    30deg,
-    #4285f4 0%,
-    #4285f4 33%,
-
-    #f4b400 33%,
-    #f4b400 66%,
-    #0f9d58 66%,
-    #0f9d58 100%
-  );
+  background-image: linear-gradient(30deg, #0f9d58 66%, #0f9d58 100%);
 }
 </style>

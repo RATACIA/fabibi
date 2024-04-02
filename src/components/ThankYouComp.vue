@@ -23,7 +23,6 @@
   <FooterComp />
 </template>
 <script setup>
-import { defineProps } from "vue";
 import FooterComp from "@/components/FooterComp.vue";
 import GoogleReview from "@/components/GoogleReview.vue";
 const props = defineProps(["firstName", "lastName"]);
