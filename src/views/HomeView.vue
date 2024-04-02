@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="ml-0 mb-6"
-    style="margin-right: 4px"
+    style="margin-right: 4px; height: 40vh"
     color="orange"
     variant="flat"
   >

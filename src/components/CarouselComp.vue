@@ -3,7 +3,7 @@
     <v-carousel
       cycle
       class="mx-0"
-      height="500"
+      height="50vh"
       hide-delimiters
       show-arrows="hover"
       width="100%"
