@@ -172,7 +172,10 @@ onMounted(() => {
           <div class="d-flex align-items-start px-10">
             <div class="d-flex text-center align-self-center pb-3 pl-9">
               <v-avatar size="64">
-                <v-img :src="review.profile_photo_url"></v-img>
+                <img
+                  :src="review.profile_photo_url"
+                  style="width: 100%; height: 100%"
+                />
               </v-avatar>
               <p class="ml-3 align-self-center">{{ review.author_name }}</p>
             </div>
@@ -193,9 +196,9 @@ onMounted(() => {
             </div>
           </div>
 
-          <v-card-text class="mx-13 font-weight-medium align-self-center">
-            <p class="text-center">{{ review.text }}</p>
-          </v-card-text>
+          <p class="mx-13 text-center pa-4" style="line-height: 1.8">
+            {{ review.text }}
+          </p>
         </div>
       </v-carousel-item>
     </v-carousel>

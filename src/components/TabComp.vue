@@ -13,8 +13,10 @@
     <v-window v-model="tab">
       <v-window-item v-for="item in items" :key="item" :value="item">
         <v-card color="basil" flat>
-          <v-card-text class="text-center">{{ getText(item) }}</v-card-text>
-          <v-card-text class="text-center">{{ getTime(item) }}</v-card-text>
+          <p class="text-center pa-4" style="line-height: 1.8">
+            {{ getText(item) }}
+          </p>
+          <p class="text-center pa-4">{{ getTime(item) }}</p>
         </v-card>
       </v-window-item>
     </v-window>

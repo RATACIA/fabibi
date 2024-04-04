@@ -7,13 +7,9 @@
       hide-delimiters
       show-arrows="hover"
       width="100%"
+      interval="4000"
     >
-      <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-sheet :color="colors[i]" height="100%">
-          <div class="d-flex fill-height justify-center align-center">
-            <div class="text-h2">{{ slide }} Slide</div>
-          </div>
-        </v-sheet>
+      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide.src">
       </v-carousel-item>
     </v-carousel>
   </div>
@@ -22,14 +18,30 @@
 <script setup>
 import { ref } from "vue";
 
-const colors = ref([
-  "indigo",
-  "warning",
-  "pink darken-2",
-  "red lighten-1",
-  "deep-purple accent-4",
+const slides = ref([
+  {
+    src: "https://www.roffon.ro/api_seb/media/04E5F2C1-A9E6-4424-82F5-F5C634030EB4.jpg",
+  },
+  {
+    src: "https://www.roffon.ro/api_seb/media/26AE74BA-313C-4BF1-A1A2-6AFD008B9DB8.jpg",
+  },
+  {
+    src: "https://www.roffon.ro/api_seb/media/IMG_1410.JPG",
+  },
+  {
+    src: "https://www.roffon.ro/api_seb/media/IMG_1432.JPG",
+  },
+
+  {
+    src: "https://www.roffon.ro/api_seb/media/IMG_1480.jpeg",
+  },
+  {
+    src: "https://www.roffon.ro/api_seb/media/IMG_9946.JPG",
+  },
+  {
+    src: "https://www.roffon.ro/api_seb/media/IMG_9971.JPG",
+  },
 ]);
-const slides = ref(["First", "Second", "Third", "Fourth", "Fifth"]);
 </script>
 
 <style>

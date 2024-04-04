@@ -15,6 +15,10 @@
             You can reach us by phone between 8am - 4pm (Mon - Fri). Our number
             is: +34747434979
           </p>
+        </v-card>
+      </v-row>
+      <v-row class="ma-3"
+        ><v-card variant="flat">
           <v-card-title class="py-3"
             ><v-icon icon="mdi-whatsapp" size="large"></v-icon>Whatsapp
           </v-card-title>
@@ -22,7 +26,7 @@
             Scan the QR code below or click the link below to send us a message
             on Whatsapp
           </p>
-          <div class="d-flex ml-4">
+          <div class="d-flex ml-2">
             <img src="../images/qrwapp.jpg" width="100" height="100" />
             <v-card-text class="d-flex align-center justify-center">
               or click here</v-card-text
@@ -35,9 +39,8 @@
               Contact us <v-icon>mdi-whatsapp</v-icon></v-btn
             >
             <v-spacer></v-spacer>
-          </div>
-        </v-card>
-      </v-row>
+          </div> </v-card
+      ></v-row>
       <v-row class="ma-3 pt-3 pb-3"
         ><v-card variant="flat">
           <v-card-title

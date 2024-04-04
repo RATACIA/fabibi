@@ -72,7 +72,6 @@ const icons = ref([
   "mdi-map-marker",
   "mdi-facebook",
   "mdi-instagram",
-  "mdi-linkedin",
   "mdi-twitter",
 ]);
 
@@ -80,7 +79,6 @@ const links = ref([
   "https://www.google.com/maps/place/FabRehab+-+Mobile+Physiotherapist+Marbella/@36.4875537,-4.9579826,17z/data=!3m2!4b1!5s0xd7329c02b5004d3:0x25ad0f13907236ba!4m6!3m5!1s0x8f3a4654463c5b11:0xd2c963fde9021f03!8m2!3d36.4875494!4d-4.9554023!16s%2Fg%2F11kpl01w_d?entry=ttu",
   "https://www.facebook.com/profile.php?id=100090998603012&locale=en_GB",
   "https://www.instagram.com/fabrehab_/",
-  "https://www.linkedin.com/in/fabio-mouawad-5b0269190/",
   "https://twitter.com/",
 ]);
 const getHoverColor = (icon) => {
@@ -93,8 +91,7 @@ const getHoverColor = (icon) => {
       return "hover-color-instagram";
     case "mdi-linkedin":
       return "hover-color-linkedin";
-    case "mdi-twitter":
-      return "hover-color-twitter";
+
     default:
       return "hover-color-default";
   }

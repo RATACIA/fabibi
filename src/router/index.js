@@ -5,6 +5,7 @@ import ContactView from "../views/ContactView.vue";
 import BlogView from "../views/BlogView.vue";
 import ThankYouComp from "@/components/ThankYouComp.vue";
 import GoogleReview from "@/components/GoogleReview.vue";
+import HealthAndSafety from "@/views/HealthAndSafety.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: "/reviews",
       name: "reviews",
       component: GoogleReview,
+    },
+    {
+      path: "/health-and-safety",
+      name: "health-and-safety",
+      component: HealthAndSafety,
     },
   ],
 });
